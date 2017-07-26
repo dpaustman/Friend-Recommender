@@ -1,8 +1,6 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
-"http://aimotion.blogspot.com.br/2012/10/atepassar-recommendations-recommending.html"
-
 class FriendsRecommender(MRJob):
 
     def steps(self):
@@ -57,9 +55,8 @@ class FriendsRecommender(MRJob):
         for idx, (item, score) in enumerate(values):
             recommendations.append((item, score))
 
-        yield key, sorted(recommendations, key=lambda k: -k[1])[:50]
+        yield key, sorted(recommendations, key=lambda k: -k[1])[:50 ]
 
 
 if __name__ == '__main__':
     FriendsRecommender.run()
-
